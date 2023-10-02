@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+    public class TextManipulation
+    {
+        public static string Reversing(string input)
+        {
+            string[] words = input.Split(' ');
+            for (int i = 1; i < words.Length; i += 2)
+            {
+                char[] charArray = words[i].ToCharArray();
+                Array.Reverse(charArray);
+                words[i] = new string(charArray);
+            }
+            return string.Join(" ", words);
+        }
+
+        public static string Magic(string input)
+        {
+            string[] lines = input.Split('\n');
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if ((i + 1) % 2 != 0) // Check if the line number is odd
+                {
+                    char[] charArray = lines[i].ToCharArray();
+                    Array.Reverse(charArray);
+                    lines[i] = new string(charArray);
+                }
+            }
+            return string.Join("\n", lines);
+        }
+
+        public static void Main(string[] args)
+        {
+            string input = "These are testing sentences \nHello World \nPlease reverse this text \nMagic happens here!";
+
+            Console.WriteLine("Original Text:");
+            Console.WriteLine(input);
+
+            Console.WriteLine("\nReversed Text:");
+            string reversedText = Reversing(input);
+            Console.WriteLine(reversedText);
+
+            Console.WriteLine("\nMagic Text:");
+            string magicText = Magic(input);
+            Console.WriteLine(magicText);
+        }
+    }
+
+
