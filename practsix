@@ -1,0 +1,74 @@
+using System;
+
+
+class MatrixMultiplication
+{
+    static void Main()
+    {
+        int[,] matrixA = new int[3, 3];
+        int[,] matrixB = new int[3, 3];
+
+
+        Console.WriteLine("Enter elements for Matrix A (3x3):");
+        ReadMatrix(matrixA);
+
+
+        Console.WriteLine("Enter elements for Matrix B (3x3):");
+        ReadMatrix(matrixB);
+
+
+        int[,] resultMatrix = MultiplyMatrices(matrixA, matrixB);
+
+
+        Console.WriteLine("Resulting Matrix C (Matrix A * Matrix B):");
+        PrintMatrix(resultMatrix);
+    }
+    static void ReadMatrix(int[,] matrix)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write($"Enter element at row {i + 1}, column {j + 1}: ");
+                matrix[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+    }
+
+
+    static int[,] MultiplyMatrices(int[,] matrixA, int[,] matrixB)
+    {
+        int[,] resultMatrix = new int[3, 3];
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < 3; k++)
+                {
+                    sum += matrixA[i, k] * matrixB[k, j];
+                }
+                resultMatrix[i, j] = sum;
+            }
+        }
+
+
+        return resultMatrix;
+    }
+
+
+    static void PrintMatrix(int[,] matrix)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write(matrix[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
