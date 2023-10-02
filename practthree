@@ -1,0 +1,54 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace test
+{
+    class A
+    {
+        public A()
+        {
+            Console.WriteLine("in A default");
+        }
+        public A(string s)
+        {
+            Console.WriteLine("in parametrized A");
+        }
+        public virtual void display()
+        {
+            Console.WriteLine("in display A");
+        }
+    }
+    class B : A
+    {
+        public override void display()
+        {
+            Console.WriteLine("in display Program");
+        }
+        public B() : this("ww")
+        {
+            Console.WriteLine("in B default");
+        }
+        public B(string s)
+        {
+            Console.WriteLine("in parametrized B");
+        }
+    }
+    internal class Program : B
+    {
+        public Program()
+        {
+            Console.WriteLine("in default program");
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            Console.WriteLine("Hello, World!");
+
+
+            B a = new B();
+            a.display();
+        }
+    }
+}
+
+
+
