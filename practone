@@ -1,0 +1,96 @@
+using System;
+namespace CsharpPracs
+{
+    public class HelloWorld
+    {
+        public void Prac1()
+        {
+            Console.WriteLine("Practical 1.A: Find the sums of squares of n natural numbers by accepting the input from the user");
+            Console.Write("Enter the number: ");
+            int sum = 0;
+            int n = int.Parse(Console.ReadLine());
+
+
+            for (int i = 1; i <= n; i++)
+            {
+                int a = i * i;
+                sum = sum + a;
+                a = 0;
+            }
+            Console.WriteLine($"Sum is {sum}");
+            Console.ReadKey();
+        }
+
+
+        public void Prac2()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Practical 1.B: Find the factorial of a number by accepting the input from the user");
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            int factorial = 1;
+
+
+            for (int i = 1; i <= num; i++)
+            {
+                factorial *= i;
+            }
+
+
+            Console.WriteLine($"Factorial of {num} is {factorial}");
+            Console.ReadKey();
+        }
+
+
+        public void Prac3()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Practical 1.C: Find the sum of digits of a number given by the user");
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            int sum = 0;
+
+
+            while (num > 0)
+            {
+                sum += num % 10;
+                num /= 10;
+            }
+
+
+            Console.WriteLine($"Sum of digits is {sum}");
+            Console.ReadKey();
+        }
+
+
+        public void Prac4()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Practical 1.D: Print a triangle in the form of stars with the first row having 1 star, the second row having 2 stars, etc.");
+            Console.Write("Enter the number of rows: ");
+            int numRows = int.Parse(Console.ReadLine());
+
+
+            for (int i = 1; i <= numRows; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+        }
+
+
+        public static void Main(string[] args)
+        {
+            HelloWorld hello = new HelloWorld();
+            hello.Prac1();
+            hello.Prac2();
+            hello.Prac3();
+            hello.Prac4();
+        }
+    }
+}
+
