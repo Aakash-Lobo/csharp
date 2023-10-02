@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;      //library for xml
+using System.Xml.Linq;  //library for xml
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
+using Microsoft.VisualBasic;
+using System.Reflection.PortableExecutable;
+
+
+namespace ConsoleApp1
+{
+    internal class LinqExample
+    {
+        //PRACTICAL 4
+        static void Main()
+        {
+
+
+            XDocument pd = XDocument.Load("C:\\VisualStudio2022\\ClgPracs\\ConsoleApp1\\ConsoleApp1\\prod.xml");
+            var products = pd.Elements();
+
+
+            //Q1: Display product names with price which is less than 25000 rupees
+            var ans1 = products.Elements("Product").Where(x => (int)x.Element("price") < 25000).Select(x => new { name = x.Element("pname").Value });
+            foreach(var product in ans1) 
+            {
+                Console.WriteLine("product.name: {0}", product.name);
+            }
+
+
+        }
+
+
+    }
+}
+
+
+
+
+prod.xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+    <Product>
+        <pid>1</pid>
+        <pname>Dell Laptop</pname>
+        <price>80000</price>
+        <dom>09-07-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>2</pid>
+        <pname>HP Laptop</pname>
+        <price>70000</price>
+        <dom>10-07-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>3</pid>
+        <pname>Dell Laptop</pname>
+        <price>78000</price>
+        <dom>09-12-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>4</pid>
+        <pname>Lenovo Laptop</pname>
+        <price>58000</price>
+        <dom>21-07-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>5</pid>
+        <pname>Asus Laptop</pname>
+        <price>23000</price>
+        <dom>09-10-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>6</pid>
+        <pname>Asur Laptop</pname>
+        <price>16000</price>
+        <dom>10-07-14</dom>
+    </Product>
+
+
+    <Product>
+       pid>7</pid>
+        <pname>Lenovo Laptop</pname>
+        <price>44000</price>
+        <dom>16-07-14</dom>
+    </Product>
+
+
+    <Product>
+        <pid>8</pid>
+        <pname>HP Laptop</pname>
+        <price>15000</price>
+        <dom>10-07-14</dom>
+    </Product>
+</Products>
+
